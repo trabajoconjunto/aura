@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Private Workspace & Social Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #b3a37d;
+            --dark: #0f0f0f;
+            --cream: #faf9f6;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Custom Cursor Effect (Optional visual polish) */
+        .luxury-shadow {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        /* Smooth reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-scrolled {
+            background: rgba(250, 249, 246, 0.9);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Section dividers */
+        .line-accent {
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+        }
+
+        /* Image hover effect */
+        .img-container {
+            overflow: hidden;
+        }
+        .img-container img {
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav id="navbar" class="fixed w-full z-[100] px-6 py-8 transition-all duration-500 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <!-- Logo Minimalista -->
+            <div class="relative w-10 h-10 flex items-center justify-center">
+                <div class="absolute border border-black/20 w-full h-full rounded-full"></div>
+                <div class="w-[1px] h-6 bg-[#b3a37d]"></div>
+            </div>
+            <span class="serif text-2xl tracking-[0.2em] uppercase font-light">Aura</span>
+        </div>
+
+        <!-- Menú Principal -->
+        <div class="hidden md:flex space-x-12 items-center text-[10px] tracking-[0.3em] uppercase font-light">
+            <div class="group relative">
+                <a href="#space" class="hover:text-[#b3a37d] transition-colors">El Espacio</a>
+                <div class="absolute top-full left-0 mt-4 w-48 bg-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto p-6 luxury-shadow">
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-[#b3a37d]">Suites de Élite</a></li>
+                        <li><a href="#" class="hover:text-[#b3a37d]">Biblioteca</a></li>
+                        <li><a href="#" class="hover:text-[#b3a37d]">Sala de Juntas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#membership" class="hover:text-[#b3a37d] transition-colors">Membresía</a>
+            <a href="#amenities" class="hover:text-[#b3a37d] transition-colors">Servicios</a>
+            <a href="#contact" class="bg-[#0f0f0f] text-white px-8 py-3 hover:bg-[#b3a37d] transition-all">Aplicar</a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <div class="md:hidden text-2xl">
+            <span>&#9776;</span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" alt="Lobby de Lujo" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        <div class="relative z-10 text-center text-white px-4">
+            <h2 class="text-xs tracking-[0.5em] uppercase mb-6 reveal">Private Workspace & Social Club</h2>
+            <h1 class="serif text-5xl md:text-8xl font-light italic leading-tight mb-12 reveal" style="transition-delay: 0.2s;">
+                La elegancia del <br> silencio absoluto.
+            </h1>
+            <div class="reveal" style="transition-delay: 0.4s;">
+                <a href="#space" class="group inline-flex items-center space-x-4 border-b border-white/40 pb-2 hover:border-[#b3a37d] transition-all">
+                    <span class="uppercase text-[10px] tracking-[0.3em]">Descubrir el santuario</span>
+                    <span class="group-hover:translate-x-2 transition-transform">→</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <div class="w-[1px] h-12 bg-white/30 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-[#b3a37d] -translate-y-full animate-bounce"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FILOSOFÍA -->
+    <section id="space" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+            <div class="reveal">
+                <span class="text-[#b3a37d] text-xs uppercase tracking-[0.4em] mb-6 block">Nuestra Visión</span>
+                <h2 class="serif text-4xl md:text-5xl leading-tight mb-8">No es donde trabajas, <br> es cómo te sientes.</h2>
+                <p class="text-gray-500 font-light leading-relaxed mb-8">
+                    AURA fue concebido como un refugio para mentes que operan a otro nivel. Hemos eliminado la saturación visual y el ruido ambiental para ofrecer un lienzo en blanco donde la estrategia y la creatividad florecen.
+                </p>
+                <div class="grid grid-cols-2 gap-8 text-[10px] tracking-widest uppercase text-gray-400">
+                    <div>
+                        <h4 class="text-black mb-2">Acústica</h4>
+                        <p>Diseño suizo de aislamiento.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-black mb-2">Luz</h4>
+                        <p>Ritmos circadianos optimizados.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative reveal" style="transition-delay: 0.3s;">
+                <div class="img-container luxury-shadow">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=1200" alt="Espacio de Trabajo" class="w-full grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="absolute -bottom-10 -left-10 hidden lg:block">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=400" alt="Detalle" class="w-48 luxury-shadow border-[15px] border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS CURADOS -->
+    <section id="amenities" class="py-32 bg-[#0f0f0f] text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-24 reveal">
+                <div class="line-accent mx-auto mb-12"></div>
+                <h2 class="serif text-4xl md:text-6xl mb-4 italic">Servicios de Guante Blanco</h2>
+                <p class="text-white/40 font-light tracking-widest uppercase text-[10px]">Exclusividad sin compromisos</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-16">
+                <!-- Card 1 -->
+                <div class="reveal" style="transition-delay: 0.1s;">
+                    <span class="serif text-5xl text-[#b3a37d] block mb-6">01</span>
+                    <h3 class="uppercase tracking-widest text-sm mb-4">Concierge Ejecutivo</h3>
+                    <p class="text-white/50 text-xs leading-loose font-light">Gestión de logística, reservas en restaurantes Michelin y soporte administrativo personalizado las 24 horas.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="reveal" style="transition-delay: 0.2s;">
+                    <span class="serif text-5xl text-[#b3a37d] block mb-6">02</span>
+                    <h3 class="uppercase tracking-widest text-sm mb-4">Wellness Sanctuary</h3>
+                    <p class="text-white/50 text-xs leading-loose font-light">Áreas de meditación asistida por VR, duchas de lluvia y una barra de hidratación con superalimentos.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="reveal" style="transition-delay: 0.3s;">
+                    <span class="serif text-5xl text-[#b3a37d] block mb-6">03</span>
+                    <h3 class="uppercase tracking-widest text-sm mb-4">Networking de Élite</h3>
+                    <p class="text-white/50 text-xs leading-loose font-light">Acceso a "The Circle", nuestro programa de cenas privadas con inversores y líderes globales de industria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA MINIMALISTA -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-4 h-[600px]">
+                <div class="flex-1 img-container reveal">
+                    <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale" alt="Oficina 1">
+                </div>
+                <div class="flex-[1.5] img-container reveal" style="transition-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Oficina 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE APLICACIÓN -->
+    <section id="contact" class="py-32 bg-[#faf9f6] flex justify-center">
+        <div class="max-w-3xl w-full px-6 reveal">
+            <div class="text-center mb-16">
+                <h2 class="serif text-4xl mb-6">Solicitar Invitación</h2>
+                <p class="text-gray-400 font-light text-sm uppercase tracking-widest">Las plazas son limitadas para garantizar la privacidad.</p>
+            </div>
+            
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="group border-b border-black/10 focus-within:border-[#b3a37d] transition-colors">
+                    <label class="block text-[8px] uppercase tracking-[0.2em] text-gray-400 mb-2">Nombre Completo</label>
+                    <input type="text" class="w-full bg-transparent py-2 focus:outline-none font-light text-sm">
+                </div>
+                <div class="group border-b border-black/10 focus-within:border-[#b3a37d] transition-colors">
+                    <label class="block text-[8px] uppercase tracking-[0.2em] text-gray-400 mb-2">Compañía / Rol</label>
+                    <input type="text" class="w-full bg-transparent py-2 focus:outline-none font-light text-sm">
+                </div>
+                <div class="md:col-span-2 group border-b border-black/10 focus-within:border-[#b3a37d] transition-colors">
+                    <label class="block text-[8px] uppercase tracking-[0.2em] text-gray-400 mb-2">Mensaje / Requerimientos de Espacio</label>
+                    <textarea rows="3" class="w-full bg-transparent py-2 focus:outline-none font-light text-sm resize-none"></textarea>
+                </div>
+                <div class="md:col-span-2 text-center pt-8">
+                    <button class="bg-[#0f0f0f] text-white px-16 py-5 uppercase text-[10px] tracking-[0.3em] hover:bg-[#b3a37d] transition-all duration-500 luxury-shadow">
+                        Enviar Aplicación
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 border-t border-black/5 bg-white px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0 text-center md:text-left">
+            <div>
+                <span class="serif text-3xl tracking-widest uppercase mb-4 block">AURA</span>
+                <p class="text-[9px] uppercase tracking-widest text-gray-400">Londres — Nueva York — Madrid — Tokio</p>
+            </div>
+            <div class="flex space-x-12 text-[10px] uppercase tracking-widest font-light text-gray-500">
+                <a href="#" class="hover:text-black transition-colors">Instagram</a>
+                <a href="#" class="hover:text-black transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-black transition-colors">Journal</a>
+            </div>
+            <p class="text-[9px] uppercase tracking-widest text-gray-300">© 2026 AURA Collective. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animación de scroll para el Navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Revelado de elementos al hacer scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
